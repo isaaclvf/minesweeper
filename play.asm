@@ -15,6 +15,8 @@ play:
   beq $t0, -1, verf1
   beq $t0, -2, verf2
   
+  j return_1
+  
 verf1:
   li $v0, 0		# return 0
   j finish
@@ -22,9 +24,10 @@ verf1:
 verf2:
   jal countAdjacentBombs	# int x = countAdjacentBombs(board, row, column);
   or $t0, $zero, $v0		# board[row][column] = x;
-  
+  j return_1
   # TODO: revealNeighboringCells
-  
+ 
+return_1:
   li $v0, 1			# return 1
 finish:
   restore_context

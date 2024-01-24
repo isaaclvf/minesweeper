@@ -24,7 +24,8 @@ begin_for_i_it:						# int i = row - 1; i <= row + 1; ++i
   add $t0, $t0, $t1
   add $t0, $t0, $s0
   
-  beq $t0, -1, verf1 # [i][j]==-1
+  lw $t2, 0($t0)
+  beq $t2, -1, verf1 # board[i][j]==-1
   j endif
   
   verf1:

@@ -22,7 +22,8 @@ checkVictory:
   add $t0, $t0, $t1
   add $t0, $t0, $s0
   
-  bltz $t1, skip_count
+  lw $t3, 0($t0)
+  bltz $t3, skip_count
   addi $s3, $s3, 1						# if (board[i][j] >= 0) count++;
   
   skip_count:
@@ -35,7 +36,7 @@ checkVictory:
   
   li $v0, 0
   blt $s3, MAX_EMPTY_CELLS, finish				# if (count < SIZE * SIZE - BOMB_COUNT) return 0;
-  li $v1, 1							# All valid cells have been revealed
+  li $v0, 1							# All valid cells have been revealed
   
   finish:
   restore_context
