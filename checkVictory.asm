@@ -26,7 +26,6 @@ checkVictory:
   addi $s3, $s3, 1						# if (board[i][j] >= 0) count++;
   
   skip_count:
-  sw $t1,0($t0)
   addi $s2,$s2,1						# j++
   j begin_for_j_it
   end_for_j_it:

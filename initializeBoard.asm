@@ -1,7 +1,7 @@
 .include "macros.asm"
-.globl inicialializeBoard
+.globl initializeBoard
 
-inicialializeBoard:
+initializeBoard:
 	save_context
 	move $s0, $a0 
   

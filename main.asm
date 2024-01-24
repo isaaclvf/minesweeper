@@ -16,7 +16,7 @@ main:
   move $s0, $sp
   move $a0, $s0 
   
-  jal inicialializeBoard # initializeBoard(board);
+  jal initializeBoard # initializeBoard(board);
   move $a0, $s0 				
   jal plantBombs 				 # placeBombs(board);
   
