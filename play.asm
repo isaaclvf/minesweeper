@@ -12,8 +12,9 @@ play:
   add $t0, $t0, $t1
   add $t0, $t0, $s0
   
-  beq $t0, -1, verf1
-  beq $t0, -2, verf2
+  lw $t3, 0($t0)
+  beq $t3, -1, verf1
+  beq $t3, -2, verf2
   
   j return_1
   
@@ -22,10 +23,12 @@ verf1:
   j finish
   
 verf2:
+  move $s4, $t0
   jal countAdjacentBombs	# int x = countAdjacentBombs(board, row, column);
-  or $t0, $zero, $v0		# board[row][column] = x;
-  j return_1
-  # TODO: revealNeighboringCells
+  sw $v0, 0($s4)		# board[row][column] = x;
+  beqz $v0, return_1
+  jal revealNeighboringCells
+  
  
 return_1:
   li $v0, 1			# return 1

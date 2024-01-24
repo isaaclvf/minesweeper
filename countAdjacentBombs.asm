@@ -42,6 +42,7 @@ begin_for_i_it:						# int i = row - 1; i <= row + 1; ++i
   
   verf4:
   blt $s1, SIZE, iftrue # i<SIZE
+  j endif
   
   iftrue:
   addi $t4, $t4, 1 # cont++
