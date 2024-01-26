@@ -26,7 +26,7 @@ verf2:
   move $s4, $t0
   jal countAdjacentBombs	# int x = countAdjacentBombs(board, row, column);
   sw $v0, 0($s4)		# board[row][column] = x;
-  beqz $v0, return_1
+  bnez $v0, return_1
   jal revealNeighboringCells
   
  
