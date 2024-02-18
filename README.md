@@ -22,13 +22,13 @@ Iniciamos os labels onde serão feitas as verificações para efetuar os laços 
 	Na label endif fazemos as interações de i e j e damos um jump para a continuação ou não dos laços de repetição.
 No label end_for_i, que é o laço de repetição mais externo, temos o final da nossa função, onde movemos para $v0 o retorno da nossa função e retomamos o contexto dela.
 
--**play.asm**:
--**checkvictory.asm**:
+- **play.asm**:
+- **checkvictory.asm**:
 	Nesta função, como todas as outras, começamos dando um save_context e movendo os parâmetros da função contidos em $a para registradores. Após isso inicializamos o contador, que começa em zero, e fazemos os laços de repetição for, com i e j indo de zero até o tamanho da borda do tabuleiro mediante bge (branch if greater or equal), para pular, em caso verdadeiro, para a label end_for.
 	No núcleo das funções for acessamos na memória o local do tabuleiro com sll (shift left logical) e a partir disso fazemos a verificação com bltz (branch if less than zero), caso seja, pula para o label skip_count, caso não o registrador estabelecido para ser o contador é iterado. 
 	No label skip_count fazemos a interações dos registradores referentes a i e j e damos um jump para os laços.
 	No label end_for_i_it, o label do final do laço de repetição mais externo, temos o valor 0 sendo retornado para o registrados de resposta de função, logo após isso é feita uma verificação blt (branch if lass than) entre o registrador contador e o número de células vazias (sem bombas), caso esse número seja menor, pulamos para o label finish que encerra a função, caso seja maior, a próxima linha carrega 1 para o registrador de resposta de função ($v)e após isso também encerra a função no label finish.
--**revealcells.asm**:
+- **revealcells.asm**:
   
 ## Instruções de Execução
 
