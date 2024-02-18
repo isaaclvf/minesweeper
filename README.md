@@ -10,11 +10,22 @@ Este projeto implementa o jogo Minesweeper em linguagem Assembly MIPS, dividindo
 - **plantbombs.asm**: Implementa a função para posicionar as bombas no tabuleiro.
 - **macros.asm**: Contém macros úteis para facilitar o desenvolvimento em MIPS.
 - **Mars.jar**: Executável do Mars MIPS, necessário para rodar os arquivos .asm.
-
 - **minesweeper.c**: Contém a implementação em C do jogo Minesweeper. Este arquivo serve como referência para a lógica do jogo e pode ser utilizado para comparação com as implementações em Assembly MIPS.
-
 - **play.asm**, **checkvictory.asm**, **revealcells.asm**: Arquivos em branco. Os alunos devem implementar essas funções em Assembly MIPS.
 
+## Relatorio de Construção de Função
+- **countAdjacentBombs.asm**:
+	Nesta função, como todas as outras, começamos dando um save_context e movendo os parâmetros da função contidos em $a para registradores. Nesta função recebemos o tabuleiro, bem como o valores de linha e coluna. Após isso, para verificar as bombas ao redor da célula, temos que fazer verificações na linha imediatamente anterior e imediatamente posterior da celular (o mesmo para a coluna), para isso somamos e diminuímos 1 para os dois parâmetros e guardamos em registradores.
+Iniciamos os labels onde serão feitas as verificações para efetuar os laços de repetições for:
+	No começo de cada laço i e j fazemos bgt(branch if greather than) para delimitar as margens do tabuleiro, com os parâmetros guardados nos registradores e levando ao label de fim de execução de for.
+	Dentro das labels de for ainda, fazemos as 5 verificações da função. Na verificação do núcleo, se chegar nela, fazemos uma interação no contador. Caso uma das verificações não seja favorável fazemos um jump para a label endif.
+	Na label endif fazemos as interações de i e j e damos um jump para a continuação ou não dos laços de repetição.
+No label end_for_i, que é o laço de repetição mais externo, temos o final da nossa função, onde movemos para $v0 o retorno da nossa função e retomamos o contexto dela.
+
+-**play.asm**:
+-**checkvictory.asm**:
+-**revealcells.asm**:
+  
 ## Instruções de Execução
 
 ### Requisitos
