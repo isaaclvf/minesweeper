@@ -13,7 +13,7 @@ Este projeto implementa o jogo Minesweeper em linguagem Assembly MIPS, dividindo
 - **minesweeper.c**: Contém a implementação em C do jogo Minesweeper. Este arquivo serve como referência para a lógica do jogo e pode ser utilizado para comparação com as implementações em Assembly MIPS.
 - **play.asm**, **checkvictory.asm**, **revealcells.asm**: Arquivos em branco. Os alunos devem implementar essas funções em Assembly MIPS.
 
-## Relatorio de Construção de Função
+## Relatório de Construção de Função
 - **countAdjacentBombs.asm**:
 	Nesta função, como todas as outras, começamos dando um save_context e movendo os parâmetros da função contidos em $a para registradores. Nesta função recebemos o tabuleiro, bem como o valores de linha e coluna. Após isso, para verificar as bombas ao redor da célula, temos que fazer verificações na linha imediatamente anterior e imediatamente posterior da celular (o mesmo para a coluna), para isso somamos e diminuímos 1 para os dois parâmetros e guardamos em registradores.
 Iniciamos os labels onde serão feitas as verificações para efetuar os laços de repetições for:
